@@ -1,5 +1,6 @@
 package hsma.uib.ss14.tpe08.p4.a1;
-
+import java.util.ArrayList;
+import java.util.Collections;
 /**
  * 
  * @author Giang Pham
@@ -12,11 +13,18 @@ public class Kino {
 	private String name;
 	private String stadt;
 	private Saal saal;
+	private ArrayList<Saal> saale;
 
 	public Kino(String name, String stadt, Saal saal) {
 		this.name = name;
 		this.stadt = stadt;
 		this.saal = saal;
+	}
+	
+	public Kino(String name, String stadt, Saal... saaleee) { //1 oder mehrere
+		this.name = name;
+		this.stadt = stadt;
+		Collections.addAll(this.saale, saaleee);
 	}
 
 	public String getName() {
@@ -33,6 +41,6 @@ public class Kino {
 	
 	@Override
 	public String toString(){
-		return name +"/n" + saal + "/n"; // plus Kinoprogramm
+		return name + " in " + stadt + " " + saale.toString(); //+ kinoprogramm
 	}
 }

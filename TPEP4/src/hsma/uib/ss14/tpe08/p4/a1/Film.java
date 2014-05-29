@@ -1,8 +1,8 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-
 
 /**
  * 
@@ -17,6 +17,14 @@ public class Film {
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
 
+	public String getTitel() {
+		return titel;
+	}
+
+	public double getLaufzeit() {
+		return laufzeit;
+	}
+
 	public Film(String titel, double laufzeit, FilmFreigabe altersFreigabe) {
 		this.titel = titel;
 		this.laufzeit = laufzeit;
@@ -25,16 +33,45 @@ public class Film {
 
 	List<Film> FilmList = new ArrayList<Film>();
 
+	class sortName implements Comparable<Film> {
 
-	class sortName {
-		
+		@Override
+		public int compareTo(Film b) {
+			if (b.getTitel() == null && getTitel() == null) {
+				return 0;
+			}
+			if (getTitel() == null) {
+				return 1;
+			}
+			if (b.getTitel() == null) {
+				return -1;
+			}
+			return getTitel().compareTo(b.getTitel());
+
+		}
 	}
 
-	class sortAltersFreigabe {
+	class sortAltersFreigabe implements Comparator<Film> {
+
+		@Override
+		public int compare(Film o1, Film o2) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 
 	}
 
-	class sortLaufzeit {
+	class sortLaufzeit implements Comparator<Film> {
+		@Override
+		public int compare(Film o1, Film o2) {
+			if (o1.getLaufzeit() == o2.getLaufzeit()) {
+				return 0;
+			} else if (o1.getLaufzeit() > o2.getLaufzeit()) {
+				return -1;
+			} else {
+				return 1;
+			}
 
+		}
 	}
 }

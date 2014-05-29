@@ -27,6 +27,6 @@ public class Saal {
 	}
 	
 	public String toString(){
-		return "Saal" + getName() + "(" + getAnzahlSitze() + ")";
+		return "Saal " + "'"+getName()+ "'" + "(" + getAnzahlSitze() +" Plaetze" +  ")";
 	}
 }
