@@ -23,7 +23,7 @@ public class Collatz {
 		}
 	}
 
-	private class Iterator {
+	class Iterator {
 		
 	}
 
