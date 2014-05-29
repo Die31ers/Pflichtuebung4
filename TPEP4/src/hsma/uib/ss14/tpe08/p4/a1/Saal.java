@@ -9,9 +9,19 @@ package hsma.uib.ss14.tpe08.p4.a1;
  * 
  */
 public class Saal {
-	private int anzahlRaeume;
+	private String name ; 
+	private int anzahlSitze;
 
-	public Saal() {
-		this.anzahlRaeume = anzahlRaeume;
+	public Saal(String name, int anzahlSitze) {
+		this.name = name;
+		this.anzahlSitze = anzahlSitze;
+	}
+	
+	public String getName(){
+		return this.name;
+		
+	}
+	public int getAnzahlSitze() {
+		return this.anzahlSitze;
 	}
 }
