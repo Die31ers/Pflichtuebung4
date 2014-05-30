@@ -41,6 +41,6 @@ public class Kino {
 	
 	@Override
 	public String toString(){
-		return name + " in " + stadt + " " + saale.toString(); //+ kinoprogramm
+		return name + " in " + stadt + " " + saale; //+ kinoprogramm
 	}
 }

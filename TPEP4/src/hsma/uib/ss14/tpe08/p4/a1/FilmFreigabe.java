@@ -13,12 +13,7 @@ package hsma.uib.ss14.tpe08.p4.a1;
 
 public enum FilmFreigabe {
 
-	USK_0(0), // Freigegeben ohne Altersbeschränkung
-				// gemäß § 14 JuSchG.
-	USK_6(6), // Freigegeben ab 6 Jahren gemäß § 14 JuSchG.
-	USK_12(12), // Freigegeben ab 12 Jahren gemäß § 14 JuSchG.
-	USK_16(16), // Freigegeben ab 16 Jahren gemäß § 14 JuSchG.
-	USK_18(18); // Keine Jugendfreigabe gemäß § 14 JuSchG.
+	FSK_0(0), FSK_6(6), FSK_12(12), FSK_16(16), FSK_18(18);
 
 	public int alter;
 
@@ -26,17 +21,17 @@ public enum FilmFreigabe {
 		this.alter = alter;
 	}
 
-	public String getUSK(FilmFreigabe usk) {
+	public String getFSK(FilmFreigabe usk) {
 		switch (usk) {
-		case USK_0:
+		case FSK_0:
 			return "ohne Altersbeschränkung";
-		case USK_6:
+		case FSK_6:
 			return "ab 6 Jahre";
-		case USK_12:
+		case FSK_12:
 			return "ab 12 Jahre";
-		case USK_16:
+		case FSK_16:
 			return "ab 16 Jahre";
-		case USK_18:
+		case FSK_18:
 			return "ab 18 Jahre";
 		default:
 			break;
