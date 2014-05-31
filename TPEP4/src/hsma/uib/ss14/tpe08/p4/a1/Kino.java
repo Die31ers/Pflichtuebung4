@@ -8,26 +8,29 @@ package hsma.uib.ss14.tpe08.p4.a1;
  * 
  * 
  */
-public class Kino {
-	private String name;
+public class Kino extends Saal {
+	private String kinoName;
 	private String stadt;
-	private Saal saal;
 
-	public Kino(String name, String stadt, Saal saal) {
-		this.name = name;
+	public Kino(String name, String stadt) {
+		super(name, anzahlSitze);
+		this.kinoName = name;
 		this.stadt = stadt;
-		this.saal = saal;
 	}
 
 	public String getName() {
-		return this.name;
+		return this.kinoName;
 	}
 
 	public String getStadt() {
 		return this.stadt;
 	}
-
-	public Saal getSaal() {
-		return this.saal;
-	}
+	
+	
+	/*
+	 * Muss noch Implementiert werden !
+	 * public String toString(){
+	 * 
+	 * }
+	 */
 }
