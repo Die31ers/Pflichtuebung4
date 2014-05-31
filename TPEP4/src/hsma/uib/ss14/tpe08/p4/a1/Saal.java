@@ -8,16 +8,16 @@ package hsma.uib.ss14.tpe08.p4.a1;
  * 
  * 
  */
-public abstract class Saal {
-	protected static String name ; 
-	protected static int anzahlSitze;
+public  class Saal {
+	private static String name ; 
+	private static int anzahlSitze;
 
-	protected Saal(String name, int anzahlSitze) {
+	private Saal(String name, int anzahlSitze) {
 		this.name = name;
 		this.anzahlSitze = anzahlSitze;
 	}
 	
-	protected String getName(){
+	private String getName(){
 		return this.name;
 		
 	}
