@@ -12,7 +12,6 @@ package hsma.uib.ss14.tpe08.p4.a1;
  */
 
 public enum FilmFreigabe {
-	
 
 	FSK_0(0), FSK_6(6), FSK_12(12), FSK_16(16), FSK_18(18);
 
