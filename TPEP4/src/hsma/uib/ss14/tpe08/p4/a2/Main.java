@@ -1,4 +1,5 @@
 package hsma.uib.ss14.tpe08.p4.a2;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
@@ -35,8 +36,7 @@ public class Main {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public static void laengsteFolge() throws InterruptedException,
-			ExecutionException {
+	public static void laengsteFolge() throws InterruptedException, ExecutionException {
 		long n = 1;
 		// Das maximale
 		Collatz maxCol = new Collatz(1);
@@ -55,11 +55,12 @@ public class Main {
 			Future<Collatz> f3 = executor.submit(new CollatzCall(n++));
 			Future<Collatz> f4 = executor.submit(new CollatzCall(n++));
 
-			// Die Ergebnisse auslesen
-			einCol = f.get();
-			zweiCol = f2.get();
-			dreiCol = f3.get();
-			vierCol = f4.get();
+
+				// Die Ergebnisse auslesen
+				einCol = f.get();
+				zweiCol = f2.get();
+				dreiCol = f3.get();
+				vierCol = f4.get();
 
 			// Den mit der miximalen Folgenlaenge bestimmen
 			maxCol = maxCol.getGetFolgenLaenge() < einCol.getGetFolgenLaenge() ? einCol
@@ -81,8 +82,7 @@ public class Main {
 		}
 	}
 
-	public static void main(String[] args) throws InterruptedException,
-			ExecutionException {
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		beispiel();
 		laengsteFolge();
 	}

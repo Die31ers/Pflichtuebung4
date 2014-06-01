@@ -13,11 +13,11 @@ import java.util.List;
  * 
  */
 public class Film {
-	private String titel;
+	private static String titel;
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
 
-	public String getTitel() {
+	public static String getTitel() {
 		return titel;
 	}
 
@@ -33,11 +33,11 @@ public class Film {
 
 	List<Film> FilmList = new ArrayList<Film>();
 
-	class sortName implements Comparable<Film> {
+	static class sortName implements Comparable<Film> {
 
 		@Override
 		public int compareTo(Film b) {
-			if (b.getTitel() == null && getTitel() == null) {
+			if (b.getTitel() == null && Film.getTitel() == null) {
 				return 0;
 			}
 			if (getTitel() == null) {
@@ -51,7 +51,7 @@ public class Film {
 		}
 	}
 
-	class sortAltersFreigabe implements Comparator<Film> {
+	static class sortAltersFreigabe implements Comparator<Film> {
 
 		@Override
 		public int compare(Film o1, Film o2) {
@@ -61,7 +61,7 @@ public class Film {
 
 	}
 
-	class sortLaufzeit implements Comparator<Film> {
+	static class sortLaufzeit implements Comparator<Film> {
 		@Override
 		public int compare(Film o1, Film o2) {
 			if (o1.getLaufzeit() == o2.getLaufzeit()) {
