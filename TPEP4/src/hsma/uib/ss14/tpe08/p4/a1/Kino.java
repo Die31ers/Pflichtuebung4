@@ -1,5 +1,8 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * 
  * @author Giang Pham
@@ -11,12 +14,20 @@ package hsma.uib.ss14.tpe08.p4.a1;
 public class Kino {
 	private String kinoName;
 	private String stadt;
-	private int aSaaele ; 
+	private Saal saal;
+	private ArrayList<Saal> saale;
+	private int aSaaele;
 
-	public Kino(String name, String stadt, int aSaaele) {
-		this.kinoName = name;
+	public Kino(String name, String stadt, Saal saal) {
+		this.kinoName = kinoName;
 		this.stadt = stadt;
-		this.aSaaele = aSaaele;
+		this.saal = saal;
+	}
+
+	public Kino(String kinoName, String stadt, Saal... saaleee) {
+		this.kinoName = kinoName;
+		this.stadt = stadt;
+		this.saale = saale;
 	}
 
 	public String getName() {
@@ -26,33 +37,27 @@ public class Kino {
 	public String getStadt() {
 		return this.stadt;
 	}
-	
+
 	/**
-	 *  Muss noch Implementiert werden !
-	 *  public void getFilmeFuerSaalMitZeiten(){
-	 *  
-	 *  }
-	 */
-	
-	/**
-	 * Muss noch Implementiert werden !
-	 * private void getAlleFilmeMitZeiten(){
+	 * Muss noch Implementiert werden ! public void getFilmeFuerSaalMitZeiten(){
 	 * 
 	 * }
 	 */
-	 
+
 	/**
-	 * Muss noch Implementiert werden ! 
-	 * public void getAlleFilme(){
-	 * 				Angabe des Sortierkriteriums als Enumeration
+	 * Muss noch Implementiert werden ! private void getAlleFilmeMitZeiten(){
+	 * 
 	 * }
 	 */
-	
-	
-	
-	 public String toString(){
-	 		return kinoName + " in " + stadt + " "; //+ kinoprogramm
 
-	 }
-	 
+	/**
+	 * Muss noch Implementiert werden ! public void getAlleFilme() { Angabe des
+	 * Sortierkriteriums als Enumeration }
+	 */
+
+	public String toString() {
+		return kinoName + " in " + stadt;
+
+	}
+
 }

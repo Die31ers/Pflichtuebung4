@@ -4,14 +4,23 @@ public class Film {
 	private String titel;
 	private double laufzeit;
 	private FilmFreigabe altersBegrenzung;
-	private Saal saal;
 
-	public Film(String titel, double laufzeit, Saal saal,
-			FilmFreigabe altersBegrenzung) {
+	public Film(String titel, double laufzeit, FilmFreigabe altersBegrenzung) {
 		this.titel = titel;
 		this.laufzeit = laufzeit;
 		this.altersBegrenzung = altersBegrenzung;
-		this.saal = saal;
 	}
 
+	// So versteh ich es aus dem Text. 3 Klassen für die Sortierreiehenfolge
+	static class sortiereNachName {
+
+	}
+
+	static class sortiereNachAlter {
+
+	}
+
+	static class sortiereNachLaufzeit {
+
+	}
 }
