@@ -1,7 +1,9 @@
 package hsma.uib.ss14.tpe08.p4.a2;
+
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator.*;
+import java.util.Iterator;
+
 
 /**
  * Die Klasse Collatz berechnet die Collatzfolge fuer ein gegebenes n. Die
@@ -83,7 +85,7 @@ public final class Collatz {
 	 * 
 	 * @return Iterator ueber die Collatzfolge
 	 */
-	class Iterator implements Iterable<Long> {
+	class Iterators implements Iterable<Long> {
 		int k = 0;
 
 		public boolean hasNext() {
@@ -95,8 +97,20 @@ public final class Collatz {
 		}
 
 		@Override
-		public java.util.Iterator<Long> iterator() {
+		public Iterator<Long> iterator() {
 			return folgenGlieder.iterator();
 		}
+
+
+	}
+
+	/**
+	 * Methode um die iterator Methode von der anonymen Klasse Iterators
+	 * aufzurufen. DOPPELTER CODE!
+	 * 
+	 * @return iterator
+	 */
+	public Iterator<Long> iterator() {
+		return new Iterators().iterator();
 	}
 }

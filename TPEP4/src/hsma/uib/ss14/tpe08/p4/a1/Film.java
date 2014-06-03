@@ -17,6 +17,12 @@ public class Film {
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
 
+	public Film(String titel, double laufzeit, FilmFreigabe altersFreigabe) {
+		this.titel = titel;
+		this.laufzeit = laufzeit;
+		this.altersFreigabe = altersFreigabe;
+	}
+
 	public static String getTitel() {
 		return titel;
 	}
@@ -25,10 +31,8 @@ public class Film {
 		return laufzeit;
 	}
 
-	public Film(String titel, double laufzeit, FilmFreigabe altersFreigabe) {
-		this.titel = titel;
-		this.laufzeit = laufzeit;
-		this.altersFreigabe = altersFreigabe;
+	public FilmFreigabe getFilmFreigabe() {
+		return altersFreigabe;
 	}
 
 	List<Film> FilmList = new ArrayList<Film>();
@@ -37,7 +41,7 @@ public class Film {
 
 		@Override
 		public int compareTo(Film b) {
-			if (b.getTitel() == null && Film.getTitel() == null) {
+			if (b.getTitel() == null && getTitel() == null) {
 				return 0;
 			}
 			if (getTitel() == null) {

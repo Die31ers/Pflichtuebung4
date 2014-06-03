@@ -36,7 +36,7 @@ public class Main {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public static void laengsteFolge() throws InterruptedException, ExecutionException {
+	public static void laengsteFolge() {
 		long n = 1;
 		// Das maximale
 		Collatz maxCol = new Collatz(1);
@@ -55,13 +55,18 @@ public class Main {
 			Future<Collatz> f3 = executor.submit(new CollatzCall(n++));
 			Future<Collatz> f4 = executor.submit(new CollatzCall(n++));
 
-
+			try {
 				// Die Ergebnisse auslesen
 				einCol = f.get();
+
 				zweiCol = f2.get();
+
 				dreiCol = f3.get();
 				vierCol = f4.get();
-
+			} catch (InterruptedException | ExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			// Den mit der miximalen Folgenlaenge bestimmen
 			maxCol = maxCol.getGetFolgenLaenge() < einCol.getGetFolgenLaenge() ? einCol
 					: maxCol;
@@ -82,7 +87,7 @@ public class Main {
 		}
 	}
 
-	public static void main(String[] args) throws InterruptedException, ExecutionException {
+	public static void main(String[] args) {
 		beispiel();
 		laengsteFolge();
 	}
