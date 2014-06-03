@@ -13,7 +13,7 @@ import java.util.List;
  * 
  */
 public class Film {
-	private static String titel;
+	private String titel;
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
 
@@ -22,8 +22,10 @@ public class Film {
 		this.laufzeit = laufzeit;
 		this.altersFreigabe = altersFreigabe;
 	}
+	
+	
 
-	public static String getTitel() {
+	public String getTitel() {
 		return titel;
 	}
 
@@ -34,9 +36,26 @@ public class Film {
 	public FilmFreigabe getFilmFreigabe() {
 		return altersFreigabe;
 	}
+	
+	public String toString (){
+		return titel + " " + "[" + altersFreigabe + "] " + laufzeit + " min";
+	}
 
+	@Override
+	public boolean equals(Object o) {
+		Film m = (Film) o;
+		return m.titel.equals(this.titel) && m.laufzeit == this.laufzeit && m.altersFreigabe == this.altersFreigabe;
+	}
+	
+	@Override
+	public int hashCode() {
+		return (int) (titel.hashCode() + laufzeit);
+	}
+	
 	List<Film> FilmList = new ArrayList<Film>();
-
+	
+	
+/*
 	static class sortName implements Comparable<Film> {
 
 		@Override
@@ -54,7 +73,7 @@ public class Film {
 
 		}
 	}
-
+*/
 	static class sortAltersFreigabe implements Comparator<Film> {
 
 		@Override
