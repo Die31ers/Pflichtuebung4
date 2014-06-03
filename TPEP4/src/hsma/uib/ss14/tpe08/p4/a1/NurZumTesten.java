@@ -6,6 +6,7 @@ public class NurZumTesten {
 	
 
 	public static void main(String[] args) {
+		
 		Saal s1 = new Saal("Blauer Saal", 250);
 		Saal s2 = new Saal("Grüner Saal", 200);
 		Saal s3 = new Saal("Studio", 150);
@@ -18,28 +19,16 @@ public class NurZumTesten {
 		Film m1 = new Film("Barbie - Die Prinzessinnen-Akademie", 81, FilmFreigabe.FSK0);
 		Film m2 = new Film("Ice Age 3", 90, FilmFreigabe.FSK0);
 		Film m3 = new Film("Machete", 100, FilmFreigabe.FSK18);
+		
+		Zeit z1 = new Zeit(14,22);
 
-		
-		System.out.println(m2);
-		
-		HashMap<Film, Saal> map = new HashMap<Film, Saal>();
-		map.put(m, s1);
-		map.put(m1, s2);
-		map.put(m2, s3);
-		map.put(m3, s4);
+		HashMap<Saal, Film> map = new HashMap<Saal, Film>();
+		Vorstellung vors = new Vorstellung(s1, m, z1);
+		vors.put(m, s1);
+		vors.put(m1, s1);
 
-		
-		for (Film mm : map.keySet()) {
-			System.out.println(map.get(mm).toString());
-		}
-		
-		HashMap<Saal, Film> map2 = new HashMap<Saal, Film>();
-		map2.put(s1, m);
-		map2.put(s2, m1);
-		map2.put(s3, m2);
-		map2.put(s4, m3);
-		for (Saal mm : map2.keySet()) {
-			System.out.println(map2.get(mm).toString());
+		for (Film mm : vors.keySet()) {
+			System.out.println(vors.toString());
 		}
 	}
 		
