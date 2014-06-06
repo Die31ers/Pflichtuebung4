@@ -28,7 +28,8 @@ public class Kino {
 	}
 
 	public void getAlleFilmeMitZeiten(Zeit date){
-
+		String [] array ; 
+	
 	}
 	
 	public String getName() {

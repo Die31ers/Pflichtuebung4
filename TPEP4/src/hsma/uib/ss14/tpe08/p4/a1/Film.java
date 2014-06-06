@@ -12,6 +12,7 @@ import java.util.List;
  * 
  * 
  */
+
 public class Film {
 	private static String titel;
 	private double laufzeit;
@@ -32,6 +33,10 @@ public class Film {
 	}
 
 	List<Film> FilmList = new ArrayList<Film>();
+
+	static enum Sort {
+		BYNAME, BYLAUFZEIT, BYSK;
+	}
 
 	static class sortName implements Comparable<Film> {
 
