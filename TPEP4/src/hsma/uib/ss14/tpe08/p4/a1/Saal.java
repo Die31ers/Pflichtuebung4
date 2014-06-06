@@ -1,5 +1,7 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
+import java.util.HashMap;
+
 /**
  * 
  * @author Giang Pham
@@ -8,7 +10,7 @@ package hsma.uib.ss14.tpe08.p4.a1;
  * 
  * 
  */
-public class Saal {
+public class Saal extends HashMap<Saal, String>{
 	private String name;
 	private int anzahlSitze;
 
@@ -27,6 +29,6 @@ public class Saal {
 	}
 	
 	public String toString(){
-		return "Saal " + "'"+getName()+ "'" + "(" + getAnzahlSitze() +" Plaetze" +  ")";
+		return "Saal " + "'"+ name + "'" + "(" + anzahlSitze +" Plaetze" +  ")";
 	}
 }

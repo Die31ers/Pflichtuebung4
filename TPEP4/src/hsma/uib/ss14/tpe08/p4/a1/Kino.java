@@ -39,8 +39,22 @@ public class Kino {
 		return this.saal;
 	}
 	
+	public Film[] getAlleFilmeMitZeiten(Film[] array){
+		
+		return array;
+	}
+	
+	public Film[] getFilmeFuerSaalMitZeiten(Film[] array){
+		return array;
+	}
+	
+	public Film[] getAlleFilme(Film[] array){
+		
+		return array;
+	}
+	
 	@Override
 	public String toString(){
-		return name + " in " + stadt + " " + saale.toString(); //+ kinoprogramm
+		return name + " in " + stadt + " " + saale; //+ kinoprogramm
 	}
 }
