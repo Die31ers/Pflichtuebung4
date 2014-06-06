@@ -27,6 +27,10 @@ public class Kino {
 		Collections.addAll(this.saale, saaleee);
 	}
 
+	public void getAlleFilmeMitZeiten(Zeit date){
+
+	}
+	
 	public String getName() {
 		return this.name;
 	}
