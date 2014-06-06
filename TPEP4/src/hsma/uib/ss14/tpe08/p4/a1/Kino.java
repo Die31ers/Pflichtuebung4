@@ -1,6 +1,8 @@
 package hsma.uib.ss14.tpe08.p4.a1;
+
 import java.util.ArrayList;
 import java.util.Collections;
+
 /**
  * 
  * @author Giang Pham
@@ -20,18 +22,23 @@ public class Kino {
 		this.stadt = stadt;
 		this.saal = saal;
 	}
-	
-	public Kino(String name, String stadt, Saal... saaleee) { //1 oder mehrere
+
+	public Kino(String name, String stadt, Saal... saaleee) { // 1 oder mehrere
 		this.name = name;
 		this.stadt = stadt;
 		Collections.addAll(this.saale, saaleee);
 	}
+	
 
-	public void getAlleFilmeMitZeiten(Zeit date){
-		String [] array ; 
-	
+	public void getAlleFilmeMitZeiten(Zeit date) {
+		ArrayList nase = new ArrayList();
+
 	}
-	
+
+	public void getAlleFilmeMitSaalMitZeit() {
+		ArrayList pinguinflosse = new ArrayList();
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -43,9 +50,9 @@ public class Kino {
 	public Saal getSaal() {
 		return this.saal;
 	}
-	
+
 	@Override
-	public String toString(){
-		return name + " in " + stadt + " " + saale; //+ kinoprogramm
+	public String toString() {
+		return name + " in " + stadt + " " + saale; // + kinoprogramm
 	}
 }
