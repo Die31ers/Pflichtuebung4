@@ -24,7 +24,7 @@ public class NurZumTesten {
 
 		Vorstellung vors = new Vorstellung(s1, m, z1);
 		vors.put(s1, m);
-		// vors.put(s1, m);
+		vors.put(s1, m2); //????
 
 		for (Saal mm : vors.keySet()) {
 			System.out.println(vors);
