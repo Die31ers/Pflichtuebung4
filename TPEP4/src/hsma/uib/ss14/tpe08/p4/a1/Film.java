@@ -58,9 +58,11 @@ public class Film {
 	public void sortiere(Sort sort) {
 		switch (sort) {
 		case BYNAME:
-			
+			new sortName();
 		case BYLAUFZEIT:
+			new sortAltersFreigabe();
 		case BYFSK:
+			new sortLaufzeit();
 		}
 	}
 
