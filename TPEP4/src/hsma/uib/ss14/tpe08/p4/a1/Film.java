@@ -19,10 +19,11 @@ public class Film {
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
 
-	public Film(String titel, double laufzeit, FilmFreigabe altersFreigabe) {
+	public Film(String titel, FilmFreigabe altersFreigabe, double laufzeit) {
 		this.titel = titel;
-		this.laufzeit = laufzeit;
 		this.altersFreigabe = altersFreigabe;
+		this.laufzeit = laufzeit;
+
 	}
 
 	public String getTitel() {
