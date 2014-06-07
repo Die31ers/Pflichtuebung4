@@ -15,17 +15,9 @@ import java.util.List;
  */
 
 public class Film {
-	private static String titel;
+	private String titel;
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
-
-	public static String getTitel() {
-		return titel;
-	}
-
-	public double getLaufzeit() {
-		return laufzeit;
-	}
 
 	public Film(String titel, double laufzeit, FilmFreigabe altersFreigabe) {
 		this.titel = titel;
@@ -33,36 +25,63 @@ public class Film {
 		this.altersFreigabe = altersFreigabe;
 	}
 
-	List<Film> FilmList = new ArrayList<Film>();
-
-	static enum Sort {
-		BYNAME, BYLAUFZEIT, BYSK;
+	public String getTitel() {
+		return titel;
 	}
 
-	static class sortName implements Comparable<Film> {
+	public double getLaufzeit() {
+		return laufzeit;
+	}
+
+	public FilmFreigabe getFilmFreigabe() {
+		return altersFreigabe;
+	}
+
+	public String toString() {
+		return titel + " " + "[" + altersFreigabe + "] " + laufzeit + " min";
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		Film m = (Film) o;
+		return m.titel.equals(this.titel) && m.laufzeit == this.laufzeit
+				&& m.altersFreigabe == this.altersFreigabe;
+	}
+
+	@Override
+	public int hashCode() {
+		return (int) (titel.hashCode() + laufzeit);
+	}
+
+	static enum Sort {
+		BYNAME, BYLAUFZEIT, BYFSK
+	}
+
+	public void sortiere(Sort sort) {
+		switch (sort) {
+		case BYNAME:
+			new sortName();
+		case BYLAUFZEIT:
+			new sortAltersFreigabe();
+		case BYFSK:
+			new sortLaufzeit();
+		}
+	}
+
+	static class sortName implements Comparator<Film> {
 
 		@Override
-		public int compareTo(Film b) {
-			if (b.getTitel() == null && Film.getTitel() == null) {
-				return 0;
-			}
-			if (getTitel() == null) {
-				return 1;
-			}
-			if (b.getTitel() == null) {
-				return -1;
-			}
-			return getTitel().compareTo(b.getTitel());
-
+		public int compare(Film a, Film b) {
+			return a.getTitel().compareTo(b.getTitel());
 		}
+
 	}
 
 	static class sortAltersFreigabe implements Comparator<Film> {
 
 		@Override
 		public int compare(Film o1, Film o2) {
-			// TODO Auto-generated method stub
-			return 0;
+			return o1.getFilmFreigabe().compareTo(o2.getFilmFreigabe());
 		}
 
 	}

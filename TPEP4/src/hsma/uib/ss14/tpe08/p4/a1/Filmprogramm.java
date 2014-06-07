@@ -23,6 +23,20 @@ public class Filmprogramm extends AbstractMap<Saal,Film> implements Map<Saal,Fil
 	map.put(key, value);
 	}
 
+	/*
+	 * So wird die toString() - Methode überschrieben, dass der Inhalt der Map 
+	 * im Format schlüssel = wert ausgegeben wird. 
+	 *
+	 * Hier sieht man die Implementierung
+	 *
+	 * Set <Map.Entry<String, String>> entrySet= map.entrySet;
+	 * for(Map.Entry<String,String> entry: entrySet) {
+	 * String key = entry.getKey();
+	 * String value = entry.getValue();
+	 * System.out.printf("5s engl. fuer %s%n", key, value);
+	 */
+	
+	
 	@Override
 	public Set entrySet() {
 		// TODO Auto-generated method stub
