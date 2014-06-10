@@ -13,7 +13,7 @@ import java.util.Set;
  * @author Hunar Mawlod
  * 
  */
-public class Filmprogramm<K,V> extends AbstractMap<Saal,Film> implements Map<Saal,Film> {
+/*public class Filmprogramm<K,V> extends AbstractMap<Saal,Film> implements Map<Saal,Film> {
 
 	HashMap<Saal, Film> map = new HashMap<Saal, Film>();
 	
@@ -44,14 +44,14 @@ public class Filmprogramm<K,V> extends AbstractMap<Saal,Film> implements Map<Saa
 	 * Es müssen <code>equals()</code> und die <code>hashcode()</code> 
 	 * noch geschrieben werden. Sinnvolle
 	 */
-	
+	/*
 	//Noch nicht implementiert
 	public String toString(){
 		return null;
 	}
 	
 	
-	/**
+	/*
 	 * So wird die toString() - Methode überschrieben, dass der Inhalt der Map 
 	 * im Format schlüssel = wert ausgegeben wird. 
 	 *
@@ -64,10 +64,11 @@ public class Filmprogramm<K,V> extends AbstractMap<Saal,Film> implements Map<Saa
 	 * System.out.printf("5s engl. fuer %s%n", key, value);
 	 */
 	
-	
+	/*
 	@Override
 	public Set entrySet() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 }
+*/

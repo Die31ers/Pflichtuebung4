@@ -18,8 +18,10 @@ public class Film {
 	private String titel;
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
+	private Zeit anfangszeit;
 
-	public Film(String titel, FilmFreigabe altersFreigabe, double laufzeit) {
+	public Film(Zeit anfangszeit , String titel, FilmFreigabe altersFreigabe, double laufzeit) {
+		this.anfangszeit = anfangszeit;
 		this.titel = titel;
 		this.altersFreigabe = altersFreigabe;
 		this.laufzeit = laufzeit;
@@ -39,7 +41,7 @@ public class Film {
 	}
 
 	public String toString() {
-		return titel + " " + "[" + altersFreigabe + "] " + laufzeit + " min";
+		return anfangszeit + " --- " +titel + " " + "[" + altersFreigabe + "] " + laufzeit + " min";
 	}
 
 	@Override
