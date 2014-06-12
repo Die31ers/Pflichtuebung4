@@ -30,15 +30,6 @@ public class Kino {
 	}
 	
 
-	public void getAlleFilmeMitZeiten(Zeit date) {
-		ArrayList nase = new ArrayList();
-
-	}
-
-	public void getAlleFilmeMitSaalMitZeit() {
-		ArrayList pinguinflosse = new ArrayList();
-	}
-
 	public String getName() {
 		return this.name;
 	}

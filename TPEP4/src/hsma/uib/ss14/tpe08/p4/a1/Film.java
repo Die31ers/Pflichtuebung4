@@ -1,7 +1,7 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
 import java.util.ArrayList;
-
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
@@ -20,7 +20,8 @@ public class Film {
 	private FilmFreigabe altersFreigabe;
 	private Zeit anfangszeit;
 
-	public Film(Zeit anfangszeit , String titel, FilmFreigabe altersFreigabe, double laufzeit) {
+	public Film(Zeit anfangszeit, String titel, FilmFreigabe altersFreigabe,
+			double laufzeit) {
 		this.anfangszeit = anfangszeit;
 		this.titel = titel;
 		this.altersFreigabe = altersFreigabe;
@@ -32,6 +33,17 @@ public class Film {
 		return titel;
 	}
 
+	public void getAlleFilmeMitZeiten(Film filme, Zeit anfangszeit) {
+		ArrayList nase = new ArrayList();
+
+		nase.addAll((Collection) filme);
+		System.out.println(nase);
+	}
+
+	public void getAlleFilmeMitSaalMitZeit() {
+		ArrayList pinguinflosse = new ArrayList();
+	}
+
 	public double getLaufzeit() {
 		return laufzeit;
 	}
@@ -41,7 +53,8 @@ public class Film {
 	}
 
 	public String toString() {
-		return anfangszeit + " --- " +titel + " " + "[" + altersFreigabe + "] " + laufzeit + " min";
+		return anfangszeit + " --- " + titel + " " + "[" + altersFreigabe
+				+ "] " + laufzeit + " min";
 	}
 
 	@Override

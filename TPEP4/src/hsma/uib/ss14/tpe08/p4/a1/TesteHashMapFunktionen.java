@@ -1,5 +1,6 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.Map;
 
 /**
@@ -35,5 +36,7 @@ public class TesteHashMapFunktionen {
 		System.out.printf("\n" + kino1 + "\n" + saal3 + "\n" + iceage + "\n");
 		System.out.printf("\n" + kino1 + "\n" + saal4 + "\n" + chocolat);
 
+		
+	
 	}
 }
