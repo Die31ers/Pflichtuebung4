@@ -7,13 +7,14 @@ import java.util.List;
 import hsma.uib.ss14.tpe08.p4.a1.Film.Sort;
 
 public class NurZumTesten {
-	
-	public static void ausgabe(ArrayList<Film> lischt){
-		for (int i = 0; i < lischt.size(); i++){
+
+	public static void ausgabe(ArrayList<Film> lischt) {
+		for (int i = 0; i < lischt.size(); i++) {
 			System.out.println(lischt.get(i));
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 		Saal s1 = new Saal("Blauer Saal", 250);
@@ -23,8 +24,6 @@ public class NurZumTesten {
 
 		Kino cinmax = new Kino("Cinemaxx", "Mannheim", s2, s3);
 		System.out.println(cinmax);
-		
-		
 
 		Film m = new Film("Batman Begins", 134, FilmFreigabe.FSK12);
 		Film m1 = new Film("Barbie - Die Prinzessinnen-Akademie", 81,
@@ -55,11 +54,15 @@ public class NurZumTesten {
 
 		System.out.println();
 		cinmax.addFilmvorfuehrung(m, z1, s1);
-		cinmax.addFilmvorfuehrung(m, z2, s1);		
+		cinmax.addFilmvorfuehrung(m, z2, s1);
+		cinmax.addFilmvorfuehrung(m2, z2, s1);
 		cinmax.addFilmvorfuehrung(m1, z1, s2);
+		cinmax.addFilmvorfuehrung(m3, z1, s4);
+
 		List<Filmvorfuehrung> tmp = cinmax.getAlleFilmeMitZeiten();
 
-		
+		List<Filmvorfuehrung> tmp1 = cinmax.getFilmeFuerSaalMitZeiten(s1);
 
+		System.out.println("\n" + tmp1);
 	}
 }
