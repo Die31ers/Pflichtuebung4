@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
@@ -35,13 +37,13 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 		}
 	}
 
-	public void addFilmvorfuehrung(Film f,Zeit t,Saal s){
+	public void addFilmvorfuehrung(Film f, Zeit t, Saal s) {
 		Filmvorfuehrung tmp = new Filmvorfuehrung(f, t);
 		List<Filmvorfuehrung> list = map.get(s);
 		list.add(tmp);
-		map.put(s,list);		
+		map.put(s, list);
 	}
-	
+
 	private void addSaal(Saal saal) {
 		map.put(saal, new ArrayList<Filmvorfuehrung>());
 	}
@@ -53,33 +55,23 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 	public String getStadt() {
 		return this.stadt;
 	}
-	
-	
+
+	public List<Filmvorfuehrung> sortiereListe() {
+		return null;
+	}
 
 	public List<Filmvorfuehrung> getAlleFilmeMitZeiten() {
-	   List<Filmvorfuehrung> liste = new ArrayList<>();
-	   
-	   for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet())
-	   {
-	       for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
-	    	   liste.add(filmvorfuehrung);
-		   }
-	   }
-	  
-	 
-	  
-		
-		return liste; // todo
+		List<Filmvorfuehrung> liste = new ArrayList<>();
+		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
+			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
+				liste.add(filmvorfuehrung);
+			}
+		}
+		return liste;
 	}
 
-	public List<Filmvorfuehrung> sortiereListe(){
-		return null;
-		
-	}
-	
-	
-	public ArrayList<Filmvorfuehrung> getFilmeFuerSaalMitZeiten(Saal saal) {
-		return null;// todo
+	public List<Filmvorfuehrung> getFilmeFuerSaalMitZeiten(Saal saal) {
+		return map.get(saal);
 	}
 
 	public ArrayList<Filmvorfuehrung> getAlleFilme() {
@@ -108,7 +100,5 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 		// TODO Auto-generated method stub
 
 	}
-	
-
 
 }

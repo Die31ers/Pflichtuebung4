@@ -49,7 +49,11 @@ public class Film {
 
 	@Override
 	public int hashCode() {
-		return (int) (titel.hashCode() + laufzeit);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((titel == null) ? 0 : titel.hashCode());
+		result = (int) (prime * result + ((laufzeit == 0) ? 0 : laufzeit));
+		return result;
 	}
 
 	static enum Sort {

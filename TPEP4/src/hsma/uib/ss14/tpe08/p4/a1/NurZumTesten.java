@@ -8,9 +8,9 @@ import hsma.uib.ss14.tpe08.p4.a1.Film.Sort;
 
 public class NurZumTesten {
 	
-	public static void ausgabe(ArrayList<Film> lischt){
-		for (int i = 0; i < lischt.size(); i++){
-			System.out.println(lischt.get(i));
+	public static void ausgabe(List<Filmvorfuehrung> tmp){
+		for (int i = 0; i < tmp.size(); i++){
+			System.out.println(tmp.get(i));
 		}
 	}
 
@@ -34,8 +34,8 @@ public class NurZumTesten {
 
 		Film m4 = new Film("Pulp Fiction", 148, FilmFreigabe.FSK16);
 
-		Zeit z1 = new Zeit("14:9");
-		Zeit z2 = new Zeit("17:0");
+		Zeit z1 = new Zeit("14:00");
+		Zeit z2 = new Zeit("17:00");
 
 		ArrayList<Film> liste = new ArrayList<Film>();
 
@@ -55,11 +55,17 @@ public class NurZumTesten {
 
 		System.out.println();
 		cinmax.addFilmvorfuehrung(m, z1, s1);
+		cinmax.addFilmvorfuehrung(m, z1, s1); // doppelt, wird auch ausgegeben, sollte aber vermieden werden
 		cinmax.addFilmvorfuehrung(m, z2, s1);		
 		cinmax.addFilmvorfuehrung(m1, z1, s2);
+		cinmax.addFilmvorfuehrung(m1, z1, s3);
 		List<Filmvorfuehrung> tmp = cinmax.getAlleFilmeMitZeiten();
-
-		
+		//cinmax.sortiereListe();
+		ausgabe(tmp);
+		System.out.println();
+		List<Filmvorfuehrung> tmp2 = cinmax.getFilmeFuerSaalMitZeiten(s1);
+		ausgabe(tmp2);
+		System.out.println(cinmax.getAlleFilme());
 
 	}
 }

@@ -10,5 +10,8 @@ public class Filmvorfuehrung {
 		this.zeit = zeit;
 	}
 
+	public String toString(){
+		return zeit.toString() + " " + film.toString();
+	}
 
 }
