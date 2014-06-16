@@ -2,6 +2,7 @@ package hsma.uib.ss14.tpe08.p4.a1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -71,7 +72,17 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 	}
 
 	public List<Filmvorfuehrung> getFilmeFuerSaalMitZeiten(Saal saal) {
-		return map.get(saal);
+		List<Filmvorfuehrung> liste1 = new ArrayList<>();
+
+		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
+			if (map.keySet().equals(entry.getKey())) {
+				for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
+					liste1.add(filmvorfuehrung);
+				}
+			}
+		}
+
+		return liste1;
 	}
 
 	public ArrayList<Filmvorfuehrung> getAlleFilme() {

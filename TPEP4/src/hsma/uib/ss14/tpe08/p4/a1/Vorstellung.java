@@ -13,9 +13,6 @@ import java.util.HashMap;
  */
 public class Vorstellung extends HashMap<Zeit, Film> {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Film film;
 	private Zeit zeit;
@@ -26,16 +23,29 @@ public class Vorstellung extends HashMap<Zeit, Film> {
 		this.zeit = zeit;
 	}
 
+	/**
+	 * Die Methode <code>getFilm</code> gibt den Film zurück
+	 * 
+	 * @return
+	 */
 	public Film getFilm() {
 		return film;
 	}
 
+	/**
+	 * Die Methode <code>getzeit</code> gibt die Zeit zurück
+	 * 
+	 * @return
+	 */
 	public Zeit getZeit() {
 		return zeit;
 	}
-	
-	public String toString(){
-		return zeit.toString() + " "+ film.toString();
+
+	/**
+	 * Die <code>toString()</code> Methode für die passende Ausgabe angepasst
+	 */
+	public String toString() {
+		return zeit.toString() + " " + film.toString();
 	}
 
 }

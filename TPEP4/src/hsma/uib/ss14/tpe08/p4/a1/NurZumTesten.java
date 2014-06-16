@@ -3,13 +3,14 @@ package hsma.uib.ss14.tpe08.p4.a1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import hsma.uib.ss14.tpe08.p4.a1.Film.Sort;
 
 public class NurZumTesten {
-	
-	public static void ausgabe(List<Filmvorfuehrung> tmp){
-		for (int i = 0; i < tmp.size(); i++){
+
+	public static void ausgabe(List<Filmvorfuehrung> tmp) {
+		for (int i = 0; i < tmp.size(); i++) {
 			System.out.println(tmp.get(i));
 		}
 	}
@@ -23,8 +24,6 @@ public class NurZumTesten {
 
 		Kino cinmax = new Kino("Cinemaxx", "Mannheim", s2, s3);
 		System.out.println(cinmax);
-		
-		
 
 		Film m = new Film("Batman Begins", 134, FilmFreigabe.FSK12);
 		Film m1 = new Film("Barbie - Die Prinzessinnen-Akademie", 81,
@@ -52,16 +51,33 @@ public class NurZumTesten {
 		System.out.println(liste);
 		Film.sortiere(liste, Sort.BYNAME);
 		System.out.println(liste);
+		System.out.println();
+		System.out.println();
+
+		System.out.println("Sortierte Liste vorbei");
+		System.out.println();
+		System.out.println();
 
 		System.out.println();
 		cinmax.addFilmvorfuehrung(m, z1, s1);
-		cinmax.addFilmvorfuehrung(m, z1, s1); // doppelt, wird auch ausgegeben, sollte aber vermieden werden
-		cinmax.addFilmvorfuehrung(m, z2, s1);		
+		cinmax.addFilmvorfuehrung(m, z1, s1); // doppelt, wird auch ausgegeben,
+												// sollte aber vermieden werden
+		cinmax.addFilmvorfuehrung(m, z2, s1);
 		cinmax.addFilmvorfuehrung(m1, z1, s2);
 		cinmax.addFilmvorfuehrung(m1, z1, s3);
+		System.err.println("GetAlleFilmMitZeiten");
 		List<Filmvorfuehrung> tmp = cinmax.getAlleFilmeMitZeiten();
-		//cinmax.sortiereListe();
+		// cinmax.sortiereListe();
+		System.out.println();
+		System.out.println();
+
 		ausgabe(tmp);
+		System.out.println();
+		System.out.println();
+
+		System.err.println("GetAlleFilmeFuerSaalMitZeiten");
+		System.out.println( );
+
 		System.out.println();
 		List<Filmvorfuehrung> tmp2 = cinmax.getFilmeFuerSaalMitZeiten(s1);
 		ausgabe(tmp2);
