@@ -44,14 +44,23 @@ public class NurZumTesten {
 		cinmax.addFilmvorfuehrung(m3, z1, s3);
 		cinmax.addFilmvorfuehrung(m4, z1, s4);
 		List<Filmvorfuehrung> tmp = cinmax.getAlleFilmeMitZeiten();
-		System.out.println(cinmax.sortiereListe(Sort.BYNAME));
-		System.out.println(cinmax.sortiereListe(Sort.BYFSK));
-		System.out.println(cinmax.sortiereListe(Sort.BYLAUFZEIT));
+		System.out.println();
+		System.out.println("Sortiere nach Namen:");
+		ausgabe(cinmax.sortiereListe(Sort.BYNAME));
+		System.out.println();
+		System.out.println("Sortiere nach FSK:");
+		ausgabe(cinmax.sortiereListe(Sort.BYFSK));
+		System.out.println();
+		System.out.println("Sortiere nach Laufzeit:");
+		ausgabe(cinmax.sortiereListe(Sort.BYLAUFZEIT));
+		System.out.println();
+		System.out.println("Alle Filme mit Zeiten");
+		ausgabe(tmp);
 		System.out.println();
 		List<Filmvorfuehrung> tmp2 = cinmax.getFilmeFuerSaalMitZeiten(s1);
+		System.out.println("Für Saal mit Zeiten");
 		ausgabe(tmp2);
 		System.out.println();
-		System.out.println(cinmax.getAlleFilme());
-
+		System.out.println(cinmax.getAlleFilme().toString());
 	}
 }

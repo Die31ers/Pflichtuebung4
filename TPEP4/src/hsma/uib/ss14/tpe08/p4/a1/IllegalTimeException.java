@@ -50,7 +50,7 @@ public class IllegalTimeException extends IllegalArgumentException {
 	}
 
 	/**
-	 * Erstellt eine Ausnahme fuer Collatzfolgenberechungen.
+	 * Erstellt eine Ausnahme.
 	 */
 	public IllegalTimeException() {
 	}

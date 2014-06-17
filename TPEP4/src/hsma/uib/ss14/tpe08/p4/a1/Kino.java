@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.ListIterator;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -18,7 +18,7 @@ import java.util.Set;
  * 
  * 
  */
-public class Kino implements ListIterator<Filmvorfuehrung> {
+public class Kino implements Iterator<Filmvorfuehrung> {
 	private String name;
 	private String stadt;
 	Map<Saal, List<Filmvorfuehrung>> map;
@@ -36,8 +36,13 @@ public class Kino implements ListIterator<Filmvorfuehrung> {
 	public void addFilmvorfuehrung(Film f, Zeit t, Saal s) {
 		Filmvorfuehrung tmp = new Filmvorfuehrung(f, t);
 		List<Filmvorfuehrung> list = map.get(s);
-		list.add(tmp);
-		map.put(s, list);
+		try {
+			list.add(tmp);
+			map.put(s, list);
+		} catch (IllegalTimeException ex) {
+			System.out.println("Warnung: Du huso arbeite gescheit!");
+
+		}
 	}
 
 	private void addSaal(Saal saal) {
@@ -74,6 +79,13 @@ public class Kino implements ListIterator<Filmvorfuehrung> {
 
 	public Set<Film> getAlleFilme() {
 		Set<Film> result = new HashSet<>();
+		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
+			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
+				if (!result.contains(filmvorfuehrung.film)) {
+					result.add(filmvorfuehrung.film);
+				}
+			}
+		}
 		return result;
 	}
 
@@ -81,21 +93,15 @@ public class Kino implements ListIterator<Filmvorfuehrung> {
 	public String toString() {
 		return name + " in " + stadt + " " + getAlleFilme(); // + kinoprogramm
 	}
-
-	@Override
-	public void add(Filmvorfuehrung arg0) {
-		// TODO Auto-generated method stub
-
+	
+	public static void ausgabe(List<Filmvorfuehrung> tmp) {
+		for (int i = 0; i < tmp.size(); i++) {
+			System.out.println(tmp.get(i));
+		}
 	}
 
 	@Override
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean hasPrevious() {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -107,31 +113,7 @@ public class Kino implements ListIterator<Filmvorfuehrung> {
 	}
 
 	@Override
-	public int nextIndex() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Filmvorfuehrung previous() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int previousIndex() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public void remove() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void set(Filmvorfuehrung arg0) {
 		// TODO Auto-generated method stub
 
 	}
