@@ -22,7 +22,7 @@ public class NurZumTesten {
 		Saal s3 = new Saal("Studio", 150);
 		Saal s4 = new Saal("Kellerloch", 30);
 
-		Kino cinmax = new Kino("Cinemaxx", "Mannheim", s2, s3);
+		Kino cinmax = new Kino("Cinemaxx", "Mannheim", s1, s2, s3, s4);
 		System.out.println(cinmax);
 
 		Film m = new Film("Batman Begins", 134, FilmFreigabe.FSK12);
@@ -65,6 +65,9 @@ public class NurZumTesten {
 		cinmax.addFilmvorfuehrung(m, z2, s1);
 		cinmax.addFilmvorfuehrung(m1, z1, s2);
 		cinmax.addFilmvorfuehrung(m1, z1, s3);
+		cinmax.addFilmvorfuehrung(m3, z1, s3);
+		cinmax.addFilmvorfuehrung(m2, z1, s3);
+		cinmax.addFilmvorfuehrung(m4, z1, s3);
 		System.err.println("GetAlleFilmMitZeiten");
 		List<Filmvorfuehrung> tmp = cinmax.getAlleFilmeMitZeiten();
 		// cinmax.sortiereListe();
@@ -81,6 +84,10 @@ public class NurZumTesten {
 		System.out.println();
 		List<Filmvorfuehrung> tmp2 = cinmax.getFilmeFuerSaalMitZeiten(s1);
 		ausgabe(tmp2);
+		System.out.println();
+		
+		System.out.println();
+		System.err.println("GetAlleFilme()");
 		System.out.println(cinmax.getAlleFilme());
 
 	}

@@ -68,14 +68,7 @@ public class Main {
 				e.printStackTrace();
 			}
 			// Den mit der miximalen Folgenlaenge bestimmen
-			maxCol = maxCol.getGetFolgenLaenge() < einCol.getGetFolgenLaenge() ? einCol
-					: maxCol;
-			maxCol = maxCol.getGetFolgenLaenge() < zweiCol.getGetFolgenLaenge() ? zweiCol
-					: maxCol;
-			maxCol = maxCol.getGetFolgenLaenge() < dreiCol.getGetFolgenLaenge() ? dreiCol
-					: maxCol;
-			maxCol = maxCol.getGetFolgenLaenge() < vierCol.getGetFolgenLaenge() ? vierCol
-					: maxCol;
+			
 		} while (n < 1000000);
 		// executoer 'beenden', fuer weitere tasks schliessen
 		executor.shutdownNow();

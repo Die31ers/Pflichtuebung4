@@ -65,7 +65,9 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 		List<Filmvorfuehrung> liste = new ArrayList<>();
 		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
 			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
-				liste.add(filmvorfuehrung);
+				if (!liste.contains(filmvorfuehrung.zeit)) {
+					liste.add(filmvorfuehrung);
+				}
 			}
 		}
 		return liste;
@@ -73,20 +75,49 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 
 	public List<Filmvorfuehrung> getFilmeFuerSaalMitZeiten(Saal saal) {
 		List<Filmvorfuehrung> liste1 = new ArrayList<>();
+		System.out.println(map);
+		System.out.println();
+		System.err.println("weiter");
 
 		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
-			if (map.keySet().equals(entry.getKey())) {
-				for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
+
+			System.out.println(entry);
+			System.out.println(entry.getKey());
+			System.out.println();
+			System.out.println("weiter gehts");
+			System.out.println();
+
+			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
+				if (entry.getKey().equals(saal)) {
+					System.out.println(entry.getKey());
 					liste1.add(filmvorfuehrung);
 				}
 			}
-		}
 
+		}
 		return liste1;
 	}
+	
+	
 
-	public ArrayList<Filmvorfuehrung> getAlleFilme() {
-		return null;// todo
+	public Set<Film> getAlleFilme() {
+		List<Filmvorfuehrung> liste3 = new ArrayList<>();
+		Set<Film> result = new HashSet<>();
+		
+		
+		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
+
+			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
+
+				liste3.add(filmvorfuehrung);
+				
+				if(!result.contains(filmvorfuehrung.getFilm())){
+					result.add(filmvorfuehrung.getFilm());
+				}
+			}
+
+		}
+		return result;
 	}
 
 	@Override
