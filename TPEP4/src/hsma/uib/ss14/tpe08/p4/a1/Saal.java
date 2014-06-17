@@ -19,6 +19,9 @@ public class Saal extends HashMap<Saal, String>{
 		this.anzahlSitze = anzahlSitze;
 	}
 
+	public HashMap<Saal, String> getSaal(){
+		return this.getSaal();
+	}
 	public String getName() {
 		return this.name;
 

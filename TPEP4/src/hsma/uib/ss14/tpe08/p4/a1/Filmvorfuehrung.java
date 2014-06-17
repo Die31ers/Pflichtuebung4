@@ -10,13 +10,7 @@ public class Filmvorfuehrung {
 		this.zeit = zeit;
 	}
 
-	public Film getFilm(){
-		return this.film;
-	}
 	
-	public Zeit getZeit(){
-		return this.zeit;
-	}
 	public String toString(){
 		return zeit.toString() + " " + film.toString();
 	}

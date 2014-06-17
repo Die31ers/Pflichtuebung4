@@ -43,20 +43,26 @@ public class NurZumTesten {
 		liste.add(m2);
 		liste.add(m1);
 		liste.add(m4);
-
+		System.out
+				.println("_______________________________________________________________________________________________________________");
+		System.out.println();
+		System.out.println("LISTE");
 		System.out.println(liste);
+		System.out.println("BYFSK");
 		Film.sortiere(liste, Sort.BYFSK);
 		System.out.println(liste);
+		System.out.println("BYLAUFZEIT");
 		Film.sortiere(liste, Sort.BYLAUFZEIT);
 		System.out.println(liste);
+		System.out.println("BYNAME");
 		Film.sortiere(liste, Sort.BYNAME);
 		System.out.println(liste);
 		System.out.println();
+		System.out
+				.println("Sortierte Listen wurden ausgegeben, jetzt kommen wir zu den Ausgaben der Filmen");
 		System.out.println();
-
-		System.out.println("Sortierte Liste vorbei");
-		System.out.println();
-		System.out.println();
+		System.out
+				.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________");
 
 		System.out.println();
 		cinmax.addFilmvorfuehrung(m, z1, s1);
@@ -68,26 +74,28 @@ public class NurZumTesten {
 		cinmax.addFilmvorfuehrung(m3, z1, s3);
 		cinmax.addFilmvorfuehrung(m2, z1, s3);
 		cinmax.addFilmvorfuehrung(m4, z1, s3);
-		System.err.println("GetAlleFilmMitZeiten");
+		System.out.println("GetAlleFilmMitZeiten");
 		List<Filmvorfuehrung> tmp = cinmax.getAlleFilmeMitZeiten();
 		// cinmax.sortiereListe();
-		System.out.println();
 		System.out.println();
 
 		ausgabe(tmp);
 		System.out.println();
-		System.out.println();
+		System.out
+				.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________");
 
-		System.err.println("GetAlleFilmeFuerSaalMitZeiten");
-		System.out.println( );
+		System.out.println();
+		System.out.println("GetAlleFilmeFuerSaalMitZeiten");
 
 		System.out.println();
 		List<Filmvorfuehrung> tmp2 = cinmax.getFilmeFuerSaalMitZeiten(s1);
 		ausgabe(tmp2);
+		System.out
+				.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________");
+
 		System.out.println();
-		
+		System.out.println("GetAlleFilme");
 		System.out.println();
-		System.err.println("GetAlleFilme()");
 		System.out.println(cinmax.getAlleFilme());
 
 	}

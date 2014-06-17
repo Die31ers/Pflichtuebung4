@@ -43,6 +43,7 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 		List<Filmvorfuehrung> list = map.get(s);
 		list.add(tmp);
 		map.put(s, list);
+
 	}
 
 	private void addSaal(Saal saal) {
@@ -63,56 +64,45 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 
 	public List<Filmvorfuehrung> getAlleFilmeMitZeiten() {
 		List<Filmvorfuehrung> liste = new ArrayList<>();
+
 		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
 			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
-				if (!liste.contains(filmvorfuehrung.zeit)) {
-					liste.add(filmvorfuehrung);
-				}
+				liste.add(filmvorfuehrung);
+
 			}
 		}
 		return liste;
 	}
 
-	public List<Filmvorfuehrung> getFilmeFuerSaalMitZeiten(Saal saal) {
+	public List<Filmvorfuehrung> getFilmeFuerSaalMitZeiten(Saal s) {
 		List<Filmvorfuehrung> liste1 = new ArrayList<>();
-		System.out.println(map);
-		System.out.println();
-		System.err.println("weiter");
-
 		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
 
-			System.out.println(entry);
-			System.out.println(entry.getKey());
-			System.out.println();
-			System.out.println("weiter gehts");
-			System.out.println();
+			for (Filmvorfuehrung film : entry.getValue()) {
+				liste1.add(film);
 
-			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
-				if (entry.getKey().equals(saal)) {
-					System.out.println(entry.getKey());
-					liste1.add(filmvorfuehrung);
-				}
 			}
 
 		}
 		return liste1;
 	}
 	
-	
 
+	/**
+	 * Die Methode <code>getAlleFilme()</code> gibt alle Filme zurück die im
+	 * Kino laufen (keine Duplikate)
+	 * 
+	 * @return
+	 */
 	public Set<Film> getAlleFilme() {
-		List<Filmvorfuehrung> liste3 = new ArrayList<>();
 		Set<Film> result = new HashSet<>();
-		
-		
+
 		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
 
 			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
 
-				liste3.add(filmvorfuehrung);
-				
-				if(!result.contains(filmvorfuehrung.getFilm())){
-					result.add(filmvorfuehrung.getFilm());
+				if (!result.contains(filmvorfuehrung.film)) {
+					result.add(filmvorfuehrung.film);
 				}
 			}
 
