@@ -1,6 +1,6 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -39,62 +39,90 @@ public class Film {
 		return titel + " " + "[" + altersFreigabe + "] " + laufzeit + " min";
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		Film m = (Film) o;
-		return m.titel.equals(this.titel) && m.laufzeit == this.laufzeit
-				&& m.altersFreigabe == this.altersFreigabe;
-	}
+
 
 	@Override
 	public int hashCode() {
-		return (int) (titel.hashCode() + laufzeit);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((altersFreigabe == null) ? 0 : altersFreigabe.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(laufzeit);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((titel == null) ? 0 : titel.hashCode());
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Film other = (Film) obj;
+		if (altersFreigabe != other.altersFreigabe)
+			return false;
+		if (Double.doubleToLongBits(laufzeit) != Double
+				.doubleToLongBits(other.laufzeit))
+			return false;
+		if (titel == null) {
+			if (other.titel != null)
+				return false;
+		} else if (!titel.equals(other.titel))
+			return false;
+		return true;
+	}
+
+
 
 	static enum Sort {
 		BYNAME, BYLAUFZEIT, BYFSK
 	}
 
-	public void sortiere(Sort sort) {
+	public static void sortiere(List<Filmvorfuehrung> list, Sort sort) {
 		switch (sort) {
 		case BYNAME:
-			new sortName();
+			Collections.sort(list, new sortName());
+			break;
 		case BYLAUFZEIT:
-			new sortAltersFreigabe();
+			Collections.sort(list, new sortLaufzeit());
+			break;
 		case BYFSK:
-			new sortLaufzeit();
+			Collections.sort(list, new sortAltersFreigabe());
+			break;
+		default:
+			Collections.sort(list, new sortName());
+			break;
 		}
 	}
 
-	static class sortName implements Comparator<Film> {
-
+	static class sortName implements Comparator<Filmvorfuehrung> {
 		@Override
-		public int compare(Film a, Film b) {
-			return a.getTitel().compareTo(b.getTitel());
+		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {
+			return o1.film.titel.compareTo(o2.film.titel);
 		}
-
 	}
 
-	static class sortAltersFreigabe implements Comparator<Film> {
-
+	static class sortAltersFreigabe implements Comparator<Filmvorfuehrung> {
 		@Override
-		public int compare(Film o1, Film o2) {
-			return o1.getFilmFreigabe().compareTo(o2.getFilmFreigabe());
+		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {
+			return o1.film.getFilmFreigabe().compareTo(o2.film.getFilmFreigabe());
 		}
-
 	}
 
-	static class sortLaufzeit implements Comparator<Film> {
+	static class sortLaufzeit implements Comparator<Filmvorfuehrung> {
 		@Override
-		public int compare(Film o1, Film o2) {
-			if (o1.getLaufzeit() == o2.getLaufzeit()) {
+		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {
+			if (o1.film.getLaufzeit() == o2.film.getLaufzeit()) {
 				return 0;
-			} else if (o1.getLaufzeit() > o2.getLaufzeit()) {
+			} else if (o1.film.getLaufzeit() > o2.film.getLaufzeit()) {
 				return -1;
 			} else {
 				return 1;
 			}
-
 		}
 	}
 }

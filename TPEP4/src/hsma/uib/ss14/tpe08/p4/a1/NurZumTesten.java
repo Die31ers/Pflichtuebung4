@@ -1,8 +1,16 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
-import java.util.HashMap;
+import hsma.uib.ss14.tpe08.p4.a1.Film.Sort;
+
+import java.util.List;
 
 public class NurZumTesten {
+
+	public static void ausgabe(List<Filmvorfuehrung> tmp) {
+		for (int i = 0; i < tmp.size(); i++) {
+			System.out.println(tmp.get(i));
+		}
+	}
 
 	public static void main(String[] args) {
 
@@ -11,7 +19,7 @@ public class NurZumTesten {
 		Saal s3 = new Saal("Studio", 150);
 		Saal s4 = new Saal("Kellerloch", 30);
 
-		Kino cinmax = new Kino("Cinemaxx", "Mannheim", s2);
+		Kino cinmax = new Kino("Cinemaxx", "Mannheim", s1, s2, s3, s4);
 		System.out.println(cinmax);
 
 		Film m = new Film("Batman Begins", 134, FilmFreigabe.FSK12);
@@ -20,15 +28,30 @@ public class NurZumTesten {
 		Film m2 = new Film("Ice Age 3", 90, FilmFreigabe.FSK0);
 		Film m3 = new Film("Machete", 100, FilmFreigabe.FSK18);
 
-		Zeit z1 = new Zeit(14, 22);
+		Film m4 = new Film("Pulp Fiction", 148, FilmFreigabe.FSK16);
 
-		Vorstellung vors = new Vorstellung(s1, m, z1);
-		vors.put(s1, m);
-		vors.put(s1, m2); //????
+		Zeit z1 = new Zeit("14:00");
+		Zeit z2 = new Zeit("17:00");
 
-		for (Saal mm : vors.keySet()) {
-			System.out.println(vors);
-		}
+		System.out.println();
+		cinmax.addFilmvorfuehrung(m, z1, s1);
+		cinmax.addFilmvorfuehrung(m, z1, s1); // doppelt, wird auch ausgegeben,
+												// sollte aber vermieden werden
+		cinmax.addFilmvorfuehrung(m, z2, s1);
+		cinmax.addFilmvorfuehrung(m1, z1, s2);
+		cinmax.addFilmvorfuehrung(m1, z1, s3);
+		cinmax.addFilmvorfuehrung(m2, z1, s3);
+		cinmax.addFilmvorfuehrung(m3, z1, s3);
+		cinmax.addFilmvorfuehrung(m4, z1, s4);
+		List<Filmvorfuehrung> tmp = cinmax.getAlleFilmeMitZeiten();
+		System.out.println(cinmax.sortiereListe(Sort.BYNAME));
+		System.out.println(cinmax.sortiereListe(Sort.BYFSK));
+		System.out.println(cinmax.sortiereListe(Sort.BYLAUFZEIT));
+		System.out.println();
+		List<Filmvorfuehrung> tmp2 = cinmax.getFilmeFuerSaalMitZeiten(s1);
+		ausgabe(tmp2);
+		System.out.println();
+		System.out.println(cinmax.getAlleFilme());
+
 	}
-
 }

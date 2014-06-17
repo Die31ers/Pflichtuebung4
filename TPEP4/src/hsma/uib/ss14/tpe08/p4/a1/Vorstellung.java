@@ -1,10 +1,6 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 /**
  * Diese Klasse modelliert eine Vorstellung. Diese umfasst: - den Kinosaal, in
@@ -15,24 +11,19 @@ import java.util.Set;
  * @author Joshua Barsoum
  * @author Hunar Mawlod
  */
-public class Vorstellung extends HashMap<Saal, Film> {
+public class Vorstellung extends HashMap<Zeit, Film> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Saal saal;
 	private Film film;
 	private Zeit zeit;
 
-	public Vorstellung(Saal saal, Film film, Zeit zeit) {
-		this.saal = saal;
+	public Vorstellung(Zeit zeit, Film film) {
+
 		this.film = film;
 		this.zeit = zeit;
-	}
-
-	public Saal getSaal() {
-		return saal;
 	}
 
 	public Film getFilm() {
@@ -42,6 +33,9 @@ public class Vorstellung extends HashMap<Saal, Film> {
 	public Zeit getZeit() {
 		return zeit;
 	}
-
+	
+	public String toString(){
+		return zeit.toString() + " "+ film.toString();
+	}
 
 }
