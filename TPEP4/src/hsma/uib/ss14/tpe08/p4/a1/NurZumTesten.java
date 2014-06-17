@@ -57,9 +57,10 @@ public class NurZumTesten {
 		System.out.println("Alle Filme mit Zeiten");
 		ausgabe(tmp);
 		System.out.println();
-		List<Filmvorfuehrung> tmp2 = cinmax.getFilmeFuerSaalMitZeiten(s1);
+		//List<Filmvorfuehrung> tmp2 = cinmax.getFilmeFuerSaalMitZeiten(s1);
 		System.out.println("Für Saal mit Zeiten");
-		ausgabe(tmp2);
+		//ausgabe(tmp2);
+		System.out.println(cinmax.getFilmeFuerSaalMitZeiten(s1));
 		System.out.println();
 		System.out.println(cinmax.getAlleFilme().toString());
 	}
