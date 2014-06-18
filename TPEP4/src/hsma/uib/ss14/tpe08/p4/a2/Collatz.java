@@ -1,10 +1,15 @@
 package hsma.uib.ss14.tpe08.p4.a2;
 
 import java.util.ArrayList;
-
 import java.util.Collection;
 import java.util.Iterator;
 
+/*
+ * Ideen zu Collatz:
+ * Hashmap für die Speicherung bisheriger Folgen nutzen, um die Berechnungen schneller zu machen.
+ * Es kommt häufig vor, dass wir immer die selben Folgen sehen, daher ist eine Speicherung ziemlich gut
+ * Einziges Problem ist die dumme Aufgabenstellung. -.-
+ */
 
 /**
  * Die Klasse Collatz berechnet die Collatzfolge fuer ein gegebenes n. Die
@@ -36,10 +41,10 @@ public final class Collatz {
 	public Collatz(long n) {
 		this.n = n;
 		folgenGlieder = new ArrayList<Long>();
-		berechneIterativ(n);
+		berechne(n);
 	}
 
-	private void berechneIterativ(long n) {
+	private void berechne(long n) {
 		while (n > 1) {
 			folgenGlieder.add(n);
 			if (n % 2 == 0) {
@@ -86,7 +91,7 @@ public final class Collatz {
 	 * 
 	 * @return Iterator ueber die Collatzfolge
 	 */
-	class Iterators implements Iterable<Long> {
+	class CollatzIterator implements Iterable<Long> {
 		int k = 0;
 
 		public boolean hasNext() {
@@ -112,6 +117,6 @@ public final class Collatz {
 	 * @return iterator
 	 */
 	public Iterator<Long> iterator() {
-		return new Iterators().iterator();
+		return new CollatzIterator().iterator();
 	}
 }

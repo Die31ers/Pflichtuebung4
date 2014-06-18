@@ -2,7 +2,7 @@ package hsma.uib.ss14.tpe08.p4.a1;
 
 /**
  * Eine Ausnahmeklasse für Film. Wird geworfen bei ungültiger Startzeit
- * (außerhalb des möglichen Bereiches)
+ * (außerhalb des möglichen Bereiches).
  * 
  * @author Joshua Barsoum
  * @author Giang Pham
@@ -50,7 +50,7 @@ public class IllegalTimeException extends IllegalArgumentException {
 	}
 
 	/**
-	 * Erstellt eine Ausnahme fuer Collatzfolgenberechungen.
+	 * Erstellt eine Ausnahme.
 	 */
 	public IllegalTimeException() {
 	}

@@ -3,8 +3,8 @@ package hsma.uib.ss14.tpe08.p4.a1;
 import java.util.StringTokenizer;
 
 /**
- * 
- * Die Klasse Zeit soll sich um die Zeit kümmern.
+ * Die Klasse Zeit, die die Zeit regelt. Da die mitgegebenen Klassen aus Java.
+ * Die Zeit soll als String angegeben werden bzw mit parse machbar sein können.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -18,7 +18,7 @@ public class Zeit {
 	private String alsString;
 
 	/**
-	 * Konstruktor für die Zeit, String eingabe
+	 * Konstruktor der Klasse Zeit
 	 * 
 	 * @param zeit
 	 */
@@ -27,6 +27,8 @@ public class Zeit {
 	}
 
 	/**
+	 * In dieser Methode wird die, laut dem Text vorgegebene Methode,
+	 * <code>parse</code> genutzt.
 	 * 
 	 * @param alsString
 	 */
@@ -39,9 +41,10 @@ public class Zeit {
 	}
 
 	/**
-	 * Die <code>toString()</code>Methode so angepasst, dass es bei Zeiten
-	 * beidenen die 0 eine Rolle spielt, wie z.B. 14:09 <- die passende Ausgabe
-	 * gibt
+	 * Die <code>toString()</code> - Methode, die die Uhrzeiten anpasst. Durch
+	 * den StringBUffer kann man "die 0 ranhängen", also das z.B. bei 14.09 <-
+	 * wird.
+	 * 
 	 */
 	public String toString() {
 		if (alsString == null) {
