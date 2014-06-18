@@ -76,17 +76,8 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 		return liste;
 	}
 
-	public Set<Filmvorfuehrung> getFilmeFuerSaalMitZeiten(Saal saal) {
-		Set<Filmvorfuehrung> result = new HashSet<>();
-		List<Filmvorfuehrung> liste = new ArrayList<>();
-		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
-			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
-				if (map.get(saal) == filmvorfuehrung) {
-					result.add(filmvorfuehrung);
-				}
-			}
-		}
-		return result;
+	public List<Filmvorfuehrung> getFilmeFuerSaalMitZeiten(Saal saal) {
+		return this.map.get(saal);
 	}
 
 	public Set<Film> getAlleFilme() {
@@ -103,13 +94,22 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 
 	@Override
 	public String toString() {
-		return name + " in " + stadt + " " + getAlleFilme(); // + kinoprogramm
+		return name + " in " + stadt + " " ; // + kinoprogramm
 	}
 
-	public static void ausgabe(List<Filmvorfuehrung> tmp) {
+	public String yoyo() {
+		String s = "";
+		
+		
+		return s;
+	}
+
+	public String ausgabeFilme(List<Filmvorfuehrung> tmp) {
+		String s = "";
 		for (int i = 0; i < tmp.size(); i++) {
-			System.out.println(tmp.get(i));
+			s += tmp.get(i).toString();
 		}
+		return s;
 	}
 
 	@Override

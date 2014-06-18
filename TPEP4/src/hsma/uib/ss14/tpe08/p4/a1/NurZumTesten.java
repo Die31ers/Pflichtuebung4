@@ -62,6 +62,6 @@ public class NurZumTesten {
 		//ausgabe(tmp2);
 		System.out.println(cinmax.getFilmeFuerSaalMitZeiten(s1));
 		System.out.println();
-		System.out.println(cinmax.getAlleFilme().toString());
+		//System.out.println(cinmax.getAlleFilme().toString());
 	}
 }

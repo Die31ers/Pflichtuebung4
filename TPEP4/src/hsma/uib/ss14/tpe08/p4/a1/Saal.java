@@ -1,7 +1,5 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
-import java.util.HashMap;
-
 /**
  * 
  * @author Giang Pham
@@ -10,7 +8,7 @@ import java.util.HashMap;
  * 
  * 
  */
-public class Saal extends HashMap<Saal, String>{
+public class Saal{
 	private String name;
 	private int anzahlSitze;
 
