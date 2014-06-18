@@ -21,7 +21,7 @@ public class Testklasse {
 	Saal s3 = new Saal("Studio", 150);
 	Saal s4 = new Saal("Kellerloch", 30);
 
-	Kino cinmax = new Kino("Cinemaxx", "Mannheim", s2, s3);
+	Kino cinmax = new Kino("Cinemaxx", "Mannheim", s1, s2, s3, s4);
 
 	Film m = new Film("Batman Begins", 134, FilmFreigabe.FSK12);
 	Film m1 = new Film("Barbie - Die Prinzessinnen-Akademie", 81,
@@ -37,8 +37,6 @@ public class Testklasse {
     @Before
     public void initialize() {
 		cinmax.addFilmvorfuehrung(m, z1, s1);
-		cinmax.addFilmvorfuehrung(m, z1, s1); // doppelt, wird auch ausgegeben,
-												// sollte aber vermieden werden
 		cinmax.addFilmvorfuehrung(m, z2, s1);
 		cinmax.addFilmvorfuehrung(m1, z1, s2);
 		cinmax.addFilmvorfuehrung(m1, z1, s3);
@@ -74,6 +72,14 @@ public class Testklasse {
     
     @Test
     public void testFilmvorf1(){
-    	assertEquals(s1, cinmax);
+    }
+    
+    @Test
+    public void testAusnahme(){
+    	try{
+		cinmax.addFilmvorfuehrung(m, z1, s1);
+    	} catch (IllegalTimeException ex){
+    		assertTrue(true);
+    	}
     }
 }

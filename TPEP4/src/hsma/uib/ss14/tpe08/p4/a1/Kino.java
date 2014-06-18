@@ -37,12 +37,13 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 		Filmvorfuehrung tmp = new Filmvorfuehrung(f, t);
 		List<Filmvorfuehrung> list = map.get(s);
 		try {
-			if (map.containsValue(tmp)) {
-				throw new IllegalTimeException(
-						"Vorführung zur selben Startzeit nicht möglich");
+			if (map.get(s).contains(tmp) ^ map.get(s).contains(t)) {
+				throw new IllegalTimeException("Fehler bei " + tmp.toString()
+						+ " Vorführung zur selben Startzeit nicht möglich");
+			} else {
+				list.add(tmp);
+				map.put(s, list);
 			}
-			list.add(tmp);
-			map.put(s, list);
 		} catch (IllegalTimeException ex) {
 			System.out.println(ex.getMessage());
 		}
@@ -94,20 +95,22 @@ public class Kino implements Iterator<Filmvorfuehrung> {
 
 	@Override
 	public String toString() {
-		return name + " in " + stadt + " " ; // + kinoprogramm
+		return name + " in " + stadt + " " + "\n" + ausgabeKinoprogramm();
 	}
 
-	public String yoyo() {
+	public String ausgabeKinoprogramm() {
 		String s = "";
-		
-		
+		for (Saal sohalt : map.keySet()) {
+			s += sohalt.toString() + "\n";
+			s += ausgabeFilme(getFilmeFuerSaalMitZeiten(sohalt)) + "\n";
+		}
 		return s;
 	}
 
 	public String ausgabeFilme(List<Filmvorfuehrung> tmp) {
 		String s = "";
 		for (int i = 0; i < tmp.size(); i++) {
-			s += tmp.get(i).toString();
+			s += tmp.get(i).toString() + "\n";
 		}
 		return s;
 	}

@@ -41,10 +41,10 @@ public final class Collatz {
 	public Collatz(long n) {
 		this.n = n;
 		folgenGlieder = new ArrayList<Long>();
-		berechneIterativ(n);
+		berechne(n);
 	}
 
-	private void berechneIterativ(long n) {
+	private void berechne(long n) {
 		while (n > 1) {
 			folgenGlieder.add(n);
 			if (n % 2 == 0) {
