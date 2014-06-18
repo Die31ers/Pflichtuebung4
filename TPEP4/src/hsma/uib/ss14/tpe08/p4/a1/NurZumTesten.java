@@ -1,7 +1,5 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
-import hsma.uib.ss14.tpe08.p4.a1.Film.Sort;
-
 import java.util.List;
 
 public class NurZumTesten {
@@ -39,7 +37,6 @@ public class NurZumTesten {
 		Zeit z6 = new Zeit("21:00");
 		Zeit z7 = new Zeit("23:00");
 		
-		System.out.println();
 		cinmax.addFilmvorfuehrung(m, z1, s1);
 		cinmax.addFilmvorfuehrung(m, z3, s1);
 		cinmax.addFilmvorfuehrung(m, z5, s1);

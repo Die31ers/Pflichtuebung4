@@ -1,12 +1,10 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
 /**
- * Die Klasse FilmFreigabe ist dafür gedacht, um mit der Altersfreigabe zu
- * arbeiten, also das hier die Freigabestufen festgehalten werden und die dann
- * nurnoch durch einen Aufruf abgerufen werden.
+ * Die Klasse FilmFreigabe für die Einstufungen bzw. Altersfreigaben der Filme.
  * 
- * @author Joshua Barsoum
  * @author Giang Pham
+ * @author Joshua Barsoum
  * @author Hunar Mawlod
  * 
  */

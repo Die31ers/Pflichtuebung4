@@ -1,15 +1,33 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
+/**
+ * Die Klasse Filmvorfuehrung. Die Klasse kennt die Namen und die Zeit des
+ * jeweiligen Filmes.
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ * 
+ */
 public class Filmvorfuehrung {
 
 	Film film;
 	Zeit zeit;
-	
+
+	/**
+	 * Der Konstruktor der Klasse Filmvorfuehrung
+	 * 
+	 * @param film
+	 * @param zeit
+	 */
 	public Filmvorfuehrung(Film film, Zeit zeit) {
 		this.film = film;
 		this.zeit = zeit;
 	}
 
+	/**
+	 * Die überschriebene <code>hashCode()</code> - Methode
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -19,6 +37,9 @@ public class Filmvorfuehrung {
 		return result;
 	}
 
+	/**
+	 * Die überschriebene <code>equals()</code> Methode.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -41,8 +62,12 @@ public class Filmvorfuehrung {
 		return true;
 	}
 
-	public String toString(){
-		return zeit.toString() + " " + film.toString();
+	/**
+	 * Die überschriebene <code>toString()</code> Methode.
+	 */
+	@Override
+	public String toString() {
+		return zeit.toString() + " -- " + film.toString();
 	}
 
 }

@@ -3,6 +3,7 @@ package hsma.uib.ss14.tpe08.p4.a1;
 import java.util.StringTokenizer;
 
 /**
+ * Die Klasse Zeit, die die Zeit regelt.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -15,10 +16,21 @@ public class Zeit {
 	private int minuten;
 	private String alsString;
 
+	/**
+	 * Der Konstruktor der Klasse Zeit.
+	 * 
+	 * @param zeit
+	 */
 	public Zeit(String zeit) {
 		fromString(zeit);
 	}
 
+	/**
+	 * Parst aus einem String(Zeichenkette) die int Werte heraus und speichert
+	 * diese Zahlen intern.
+	 * 
+	 * @param alsString
+	 */
 	public void fromString(String alsString) {
 		StringTokenizer tok = new StringTokenizer(alsString, ":");
 		String hh = tok.nextToken();
@@ -27,6 +39,12 @@ public class Zeit {
 		this.minuten = Integer.parseInt(mm);
 	}
 
+	/**
+	 * Die überschriebene <code>toString()</code> Methode, die die Uhrzeiten
+	 * anpasst. Durch den StringBuffer kann man "die 0 ranhängen", also dass
+	 * z.B. bei HH = 14, MM = 9 => 14.09.
+	 */
+	@Override
 	public String toString() {
 		if (alsString == null) {
 			StringBuffer buf = new StringBuffer();

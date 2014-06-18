@@ -5,6 +5,8 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
+ * Die Klasse Film. Jeder Film hat einen Titel, eine laufzeit und eine
+ * Altersbeschränkung. In dieser Klasse wird der Film definiert.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -17,30 +19,57 @@ public class Film {
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
 
+	/**
+	 * Der Konstruktor der Klasse Film.
+	 * 
+	 * @param titel
+	 * @param laufzeit
+	 * @param altersFreigabe
+	 */
 	public Film(String titel, double laufzeit, FilmFreigabe altersFreigabe) {
 		this.titel = titel;
 		this.laufzeit = laufzeit;
 		this.altersFreigabe = altersFreigabe;
 	}
 
+	/**
+	 * Gibt den Titel des Filmes zurück
+	 * 
+	 * @return titel
+	 */
 	public String getTitel() {
 		return titel;
 	}
 
+	/**
+	 * Gibt die Laufzeit zurück
+	 * 
+	 * @return laufzeit
+	 */
 	public double getLaufzeit() {
 		return laufzeit;
 	}
 
+	/**
+	 * Gibt die Filmfreigabe zurück
+	 * 
+	 * @return alterFreigabe
+	 */
 	public FilmFreigabe getFilmFreigabe() {
 		return altersFreigabe;
 	}
 
+	/**
+	 * Die überschriebene <code>toString()</code> Methode.
+	 */
+	@Override
 	public String toString() {
 		return titel + " " + "[" + altersFreigabe + "] " + laufzeit + " min";
 	}
 
-
-
+	/**
+	 * Die überschriebene <code>hashCode()</code> - Methode
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -54,6 +83,9 @@ public class Film {
 		return result;
 	}
 
+	/**
+	 * Die überschriebene <code>equals()</code> - Methode
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -76,12 +108,14 @@ public class Film {
 		return true;
 	}
 
-
-
-	static enum Sort {
-		BYNAME, BYLAUFZEIT, BYFSK
-	}
-
+	/**
+	 * Die Methode <code>sortiere(List<Filmvorfuehrung> list, Sort sort)</code>,
+	 * welches die switch-case Funktion hat, um die Listse nach dem ausgewählten
+	 * Sortierkriterium zu sortieren
+	 * 
+	 * @param list
+	 * @param sort
+	 */
 	public static void sortiere(List<Filmvorfuehrung> list, Sort sort) {
 		switch (sort) {
 		case BYNAME:
@@ -99,6 +133,18 @@ public class Film {
 		}
 	}
 
+	/**
+	 * Die statische innere enum Klasse <code>Sort</code>.
+	 */
+	static enum Sort {
+		BYNAME, BYLAUFZEIT, BYFSK
+	}
+
+	/**
+	 * Die statische innere Klasse <code>sortName</code> die das Interface
+	 * <code>Comparator</code> implementiert.
+	 * 
+	 */
 	static class sortName implements Comparator<Filmvorfuehrung> {
 		@Override
 		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {
@@ -106,13 +152,24 @@ public class Film {
 		}
 	}
 
+	/**
+	 * Die statische innere Klasse <code>sortAltersFreigabe</code> die das
+	 * Interface <code>Comparator</code> implementiert.
+	 * 
+	 */
 	static class sortAltersFreigabe implements Comparator<Filmvorfuehrung> {
 		@Override
 		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {
-			return o1.film.getFilmFreigabe().compareTo(o2.film.getFilmFreigabe());
+			return o1.film.getFilmFreigabe().compareTo(
+					o2.film.getFilmFreigabe());
 		}
 	}
 
+	/**
+	 * Die statische innere Klasse <code>sortLaufzeit</code> die das Interface
+	 * <code>Comparator</code> implementiert.
+	 * 
+	 */
 	static class sortLaufzeit implements Comparator<Filmvorfuehrung> {
 		@Override
 		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {
