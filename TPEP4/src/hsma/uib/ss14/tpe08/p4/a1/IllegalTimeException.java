@@ -1,8 +1,8 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
 /**
- * Eine Ausnahmeklasse fÃ¼r Film. Wird geworfen bei ungÃ¼ltiger Startzeit
- * (auÃŸerhalb des mÃ¶glichen Bereiches)
+ * Eine Ausnahmeklasse für Film. Wird geworfen bei ungültiger Startzeit
+ * (auserhalb des möglichen Bereiches)
  * 
  * @author Joshua Barsoum
  * @author Giang Pham

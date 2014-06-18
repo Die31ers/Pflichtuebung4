@@ -5,6 +5,8 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
+ * Filme sollen nach allen drei Attributen 
+ * (Name bzw. Titel, Altersfreigabe, Laufzeit) sortiert werden können
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -17,30 +19,59 @@ public class Film {
 	private double laufzeit;
 	private FilmFreigabe altersFreigabe;
 
+	/**
+	 * Konstruktor <code>Film</code> mit folgenden Parametern
+	 * @param titel
+	 * @param laufzeit
+	 * @param altersFreigabe
+	 */
 	public Film(String titel, double laufzeit, FilmFreigabe altersFreigabe) {
 		this.titel = titel;
 		this.laufzeit = laufzeit;
 		this.altersFreigabe = altersFreigabe;
 	}
 
+	/**
+	 * Die Methode <code>getTitel()</code> liefert uns den Namen bzw. Titel
+	 * des Films zurück
+	 * @return
+	 */
 	public String getTitel() {
 		return titel;
 	}
 
+	/**
+	 * Die Methode <code>getLaufzeit()</code> liefert uns die Laufzeit
+	 * des Films zurück
+	 * @return
+	 */
 	public double getLaufzeit() {
 		return laufzeit;
 	}
 
+	/**
+	 * Die Methode <code>getFilmFreigabe()</code> liefert uns die Altersfreigabe
+	 * des Films zurück
+	 * @return
+	 */
 	public FilmFreigabe getFilmFreigabe() {
 		return altersFreigabe;
 	}
 
+	/**
+	 * Die Methode <code>toString()</code> wandelt den Titel, die Altersfreigabe
+	 * und die Laufzeit des Films als String zurück
+	 * @return
+	 */
 	public String toString() {
 		return titel + " " + "[" + altersFreigabe + "] " + laufzeit + " min";
 	}
 
 
-
+	/**
+	 * Die Methode <code>hashcode()</code> wird für unsere
+	 * Klasse neu definiert bzw. überschrieben
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -54,6 +85,10 @@ public class Film {
 		return result;
 	}
 
+	/**
+	 * Ebenfalls wird natürlich die Methode <code>equals(Object obj)</code>
+	 * überschrieben
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -78,10 +113,26 @@ public class Film {
 
 
 
+	/**
+	 * 
+	 * Es wird eine statische enumeration Sort erstellt, welches die
+	 * Variablen BYNAME, BYLAUFZEIT, BYFSK hat, die für das Sortierkriterium
+	 * stehen
+	 *
+	 */
 	static enum Sort {
 		BYNAME, BYLAUFZEIT, BYFSK
 	}
 
+	/**
+	 * Je nachdem welches Sortierkriterium ausgewählt worden ist, switchen wir
+	 * in den case und rufen dort die Sortiermethode auf und
+	 * falls keine Sortierkriterium ausgwählt worden ist, wird die natürliche Sortierreihenfolge
+	 * von Filmen aufgerufen, die nach dem Namen bzw. Titel sortiert
+	 * 
+	 * @param list
+	 * @param sort
+	 */
 	public static void sortiere(List<Filmvorfuehrung> list, Sort sort) {
 		switch (sort) {
 		case BYNAME:
@@ -99,6 +150,13 @@ public class Film {
 		}
 	}
 
+	/**
+	 * 
+	 * Die statisch geschachtelte Klasse <code>sortName</code> implementiert die 
+	 * vordefinierte Klasse <code>Comparator</code>, die nach
+	 * dem Namen des Films sortiert
+	 *
+	 */
 	static class sortName implements Comparator<Filmvorfuehrung> {
 		@Override
 		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {
@@ -106,6 +164,13 @@ public class Film {
 		}
 	}
 
+	/**
+	 * 
+	 * Die statisch geschachtelte Klasse <code>sortAltersFreigabe</code>
+	 * implementiert die vordefinierte Klasse <code>Comparator</code>, die nach
+	 * dem AlterFreigabe Kriterium des Films sortiert
+	 * 
+	 */
 	static class sortAltersFreigabe implements Comparator<Filmvorfuehrung> {
 		@Override
 		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {
@@ -113,6 +178,13 @@ public class Film {
 		}
 	}
 
+	/**
+	 * 
+	 * Die statisch geschachtelte Klasse <code>sortLaufzeit</code>
+	 * implementiert ebenfalls die vordefinierte Klasse <code>Comparator</code>, 
+	 * die nach dem Laufzeit Kriterium des Films sortiert
+	 *
+	 */
 	static class sortLaufzeit implements Comparator<Filmvorfuehrung> {
 		@Override
 		public int compare(Filmvorfuehrung o1, Filmvorfuehrung o2) {

@@ -6,8 +6,8 @@ import java.util.Iterator;
 
 /*
  * Ideen zu Collatz:
- * Hashmap fÃ¼r die Speicherung bisheriger Folgen nutzen, um die Berechnungen schneller zu machen.
- * Es kommt hÃ¤ufig vor, dass wir immer die selben Folgen sehen, daher ist eine Speicherung ziemlich gut
+ * Hashmap für die Speicherung bisheriger Folgen nutzen, um die Berechnungen schneller zu machen.
+ * Es kommt häufig vor, dass wir immer die selben Folgen sehen, daher ist eine Speicherung ziemlich gut
  * Einziges Problem ist die dumme Aufgabenstellung. -.-
  */
 
@@ -18,7 +18,6 @@ import java.util.Iterator;
  * 3*n+1 fuer ungerade n;<br/>
  * Es laesst sich mit einem Iterator ueber die einzelnen Folgenglieder
  * iterieren, oder die erweiterte for-schleife nutzen.
- * 
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
