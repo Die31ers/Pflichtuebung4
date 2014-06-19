@@ -100,13 +100,10 @@ public final class Collatz {
 		public Iterator<Long> iterator() {
 			return folgenGlieder.iterator();
 		}
-
-
 	}
 
 	/**
 	 * Methode um die iterator Methode von der anonymen Klasse Iterators
-	 * aufzurufen. DOPPELTER CODE!
 	 * 
 	 * @return iterator
 	 */

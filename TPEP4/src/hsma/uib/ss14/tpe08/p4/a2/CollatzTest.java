@@ -22,7 +22,6 @@ public class CollatzTest {
     @Before
     public void initialize() {
         bsp = new Collatz(13l);
-        
     }
 
     @Test
