@@ -25,6 +25,14 @@ public class Zeit {
 		fromString(zeit);
 	}
 
+	public int getStunden() {
+		return stunden;
+	}
+
+	public int getMinuten() {
+		return minuten;
+	}
+
 	/**
 	 * Parst aus einem String(Zeichenkette) die int Werte heraus und speichert
 	 * diese Zahlen intern.

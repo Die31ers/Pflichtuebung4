@@ -1,5 +1,7 @@
 package hsma.uib.ss14.tpe08.p4.a1;
 
+import hsma.uib.ss14.tpe08.p4.a1.Film.Sort;
+
 import java.util.List;
 
 public class NurZumTesten {
@@ -37,8 +39,8 @@ public class NurZumTesten {
 		Zeit z6 = new Zeit("21:00");
 		Zeit z7 = new Zeit("23:00");
 		
-		cinmax.addFilmvorfuehrung(m, z1, s1);
 		cinmax.addFilmvorfuehrung(m, z3, s1);
+		cinmax.addFilmvorfuehrung(m, z1, s1);
 		cinmax.addFilmvorfuehrung(m, z5, s1);
 		cinmax.addFilmvorfuehrung(m, z7, s1);
 		
@@ -47,16 +49,16 @@ public class NurZumTesten {
 		cinmax.addFilmvorfuehrung(m2, z4, s2);
 		cinmax.addFilmvorfuehrung(m3, z6, s2);
 		
-		cinmax.addFilmvorfuehrung(m2, z2, s3);
-		cinmax.addFilmvorfuehrung(m6, z3, s3);
+		cinmax.addFilmvorfuehrung(m2, z3, s3);
+		cinmax.addFilmvorfuehrung(m6, z2, s3);
 		cinmax.addFilmvorfuehrung(m4, z5, s3);
 		cinmax.addFilmvorfuehrung(m7, z7, s3);
 		
-		cinmax.addFilmvorfuehrung(m5, z5, s4);
-		cinmax.addFilmvorfuehrung(m6, z7, s4);
+		cinmax.addFilmvorfuehrung(m5, z7, s4);
+		cinmax.addFilmvorfuehrung(m6, z5, s4);
 		
 		System.out.println(cinmax);
-		/*
+		
 		List<Filmvorfuehrung> tmp = cinmax.getAlleFilmeMitZeiten();
 		System.out.println();
 		System.out.println("Sortiere nach Namen:");
@@ -77,6 +79,6 @@ public class NurZumTesten {
 		System.out.println(cinmax.getFilmeFuerSaalMitZeiten(s1));
 		System.out.println();
 		//System.out.println(cinmax.getAlleFilme().toString());
-		*/
+		
 	}
 }

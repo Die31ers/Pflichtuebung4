@@ -176,9 +176,9 @@ public class Film {
 			if (o1.film.getLaufzeit() == o2.film.getLaufzeit()) {
 				return 0;
 			} else if (o1.film.getLaufzeit() > o2.film.getLaufzeit()) {
-				return -1;
-			} else {
 				return 1;
+			} else {
+				return -1;
 			}
 		}
 	}

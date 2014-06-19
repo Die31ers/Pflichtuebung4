@@ -59,6 +59,7 @@ public class Kino {
 						+ " Vorführung zur selben Startzeit nicht möglich");
 			} else {
 				list.add(tmp);
+				list = sortiereListeNachAnfangszeit(list);
 				map.put(s, list);
 			}
 		} catch (IllegalTimeException ex) {
@@ -93,9 +94,20 @@ public class Kino {
 	public String getStadt() {
 		return this.stadt;
 	}
+	
+	/**
+	 * Sortiert die Liste der Filmvorfuehrungen nach Anfangszeiten.
+	 * @param list
+	 * @return
+	 */
+	public List<Filmvorfuehrung> sortiereListeNachAnfangszeit(List<Filmvorfuehrung> list) {
+		List<Filmvorfuehrung> liste = list;
+		Filmvorfuehrung.sortiere(liste);
+		return liste;
+	}
 
 	/**
-	 * Die Methode <code>List<Filmvorfuehrung>sortierteListe(Sort sort)</code>
+	 * Die Methode <code>List<Filmvorfuehrung>sortiereListe(Sort sort)</code>
 	 * bekommt ein Sortierkriterium, mit der es die Filme sortiert, je nach dem
 	 * was angegeben wird (Startzeit, Altersbeschränkung etc.)
 	 * 
@@ -120,6 +132,7 @@ public class Kino {
 		for (Map.Entry<Saal, List<Filmvorfuehrung>> entry : map.entrySet()) {
 			for (Filmvorfuehrung filmvorfuehrung : entry.getValue()) {
 				liste.add(filmvorfuehrung);
+				//liste = sortiereListeNachAnfangszeit(liste);
 			}
 		}
 		return liste;

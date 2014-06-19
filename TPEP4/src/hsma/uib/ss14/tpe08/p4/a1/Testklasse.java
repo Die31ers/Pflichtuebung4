@@ -2,8 +2,6 @@ package hsma.uib.ss14.tpe08.p4.a1;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
