@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-/*
- * Ideen zu Collatz:
- * Hashmap für die Speicherung bisheriger Folgen nutzen, um die Berechnungen schneller zu machen.
- * Es kommt häufig vor, dass wir immer die selben Folgen sehen, daher ist eine Speicherung ziemlich gut
- * Einziges Problem ist die dumme Aufgabenstellung. -.-
- */
 
 /**
  * Die Klasse Collatz berechnet die Collatzfolge fuer ein gegebenes n. Die
